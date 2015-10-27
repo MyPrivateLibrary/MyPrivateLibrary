@@ -1,0 +1,18 @@
+.round-img{
+    width: 110px;
+    height: 110px;
+
+    @include border-radius(110px);
+
+    border : 2px solid #000;
+    text-align: center;
+
+    padding-top: 15px;
+
+    >img{
+      width: 75px;
+      height: 75px;
+    }
+
+
+}

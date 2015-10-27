@@ -1,0 +1,46 @@
+*{
+  @include box-sizing();
+}
+
+html{
+  font-size: 90%;
+}
+
+body{
+  font-size: 1rem;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+strong{
+  font-weight: bold;
+}
+
+a{
+    text-decoration: none;
+    color: $PrimaryColor;
+    &:hover{
+        color: lighten($PrimaryColor,20%);
+    }
+}
+
+$start:3rem;
+
+@function headings($from:1, $to:6) {
+    @if $from == $to {
+        @return 'h#{$from}';
+    } @else {
+        @return 'h#{$from},' + headings($from+1, $to);
+    }
+}
+
+#{headings(1,6)} {
+  color: #000;
+}
+
+@each $h in h1, h2, h3, h4, h5, h6{
+    #{$h} {
+      font-size: $start;
+      }
+
+      $start: $start - 0.5;
+  }
